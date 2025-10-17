@@ -1,16 +1,14 @@
 package giuseppeperna.U5_W2_D5_Project.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "prenotazioni", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"dipendente_id", "data_richiesta"})
-})
-@Getter
-@Setter
+@Table(name = "prenotazioni")
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
@@ -27,7 +25,7 @@ public class Prenotazione {
     @JoinColumn(name = "dipendente_id", nullable = false)
     private Dipendente dipendente;
 
-    @Column(nullable = false, name = "data_richiesta")
+    @Column(nullable = false)
     private LocalDate dataRichiesta;
 
     @Column(length = 500)
@@ -35,4 +33,48 @@ public class Prenotazione {
 
     @Column(length = 500)
     private String preferenze;
+
+    public Long getId() {
+        return id;
+    }
+
+    public Viaggio getViaggio() {
+        return viaggio;
+    }
+
+    public void setViaggio(Viaggio viaggio) {
+        this.viaggio = viaggio;
+    }
+
+    public Dipendente getDipendente() {
+        return dipendente;
+    }
+
+    public void setDipendente(Dipendente dipendente) {
+        this.dipendente = dipendente;
+    }
+
+    public LocalDate getDataRichiesta() {
+        return dataRichiesta;
+    }
+
+    public void setDataRichiesta(LocalDate dataRichiesta) {
+        this.dataRichiesta = dataRichiesta;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getPreferenze() {
+        return preferenze;
+    }
+
+    public void setPreferenze(String preferenze) {
+        this.preferenze = preferenze;
+    }
 }

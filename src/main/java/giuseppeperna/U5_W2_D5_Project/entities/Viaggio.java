@@ -1,15 +1,14 @@
 package giuseppeperna.U5_W2_D5_Project.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Table(name = "viaggi")
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
@@ -28,7 +27,31 @@ public class Viaggio {
     @Column(nullable = false)
     private StatoViaggio stato;
 
-    @OneToMany(mappedBy = "viaggio", cascade = CascadeType.ALL)
-    private List<Prenotazione> prenotazioni;
-}
+    public Long getId() {
+        return id;
+    }
 
+    public String getDestinazione() {
+        return destinazione;
+    }
+
+    public void setDestinazione(String destinazione) {
+        this.destinazione = destinazione;
+    }
+
+    public StatoViaggio getStato() {
+        return stato;
+    }
+
+    public void setStato(StatoViaggio stato) {
+        this.stato = stato;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+}
