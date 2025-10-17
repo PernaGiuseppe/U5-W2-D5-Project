@@ -1,4 +1,4 @@
-package U5_W2_D3.exceptions;
+package giuseppeperna.U5_W2_D5_Project.exceptions;
 
 public class NotFoundException extends RuntimeException {
     public NotFoundException(long id) {
